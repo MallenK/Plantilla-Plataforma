@@ -68,7 +68,7 @@ export const VouchersView = () => {
   };
 
   return (
-    <div className="p-8 space-y-8 relative min-h-screen">
+    <div className="p-4 lg:p-8 space-y-6 lg:space-y-8 relative min-h-screen pb-24 lg:pb-8">
       {/* Delete Confirmation Modal */}
       <AnimatePresence>
         {voucherToDelete && (
@@ -80,7 +80,7 @@ export const VouchersView = () => {
             />
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-white w-full max-w-sm rounded-[32px] shadow-2xl p-8 text-center"
+              className="relative bg-white w-full max-w-sm rounded-[32px] shadow-2xl p-6 lg:p-8 text-center"
             >
               <div className="w-16 h-16 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Trash2 size={32} />
@@ -107,17 +107,17 @@ export const VouchersView = () => {
             />
             <motion.div 
               initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 20, opacity: 0 }}
-              className="relative bg-white w-full max-w-lg rounded-[40px] shadow-2xl overflow-hidden"
+              className="relative bg-white w-full max-w-lg rounded-[32px] lg:rounded-[40px] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
             >
-              <div className="p-10 space-y-8">
+              <div className="p-6 lg:p-10 space-y-6 lg:space-y-8">
                 <div className="flex justify-between items-start">
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-blue-600 text-white rounded-3xl flex items-center justify-center shadow-xl shadow-blue-600/20">
-                      <Ticket size={32} />
+                  <div className="flex items-center gap-4 lg:gap-6">
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 bg-blue-600 text-white rounded-2xl lg:rounded-3xl flex items-center justify-center shadow-xl shadow-blue-600/20">
+                      <Ticket size={28} className="lg:w-8 lg:h-8" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-black text-slate-900">{viewingVoucher.name}</h3>
-                      <p className="text-blue-600 font-bold uppercase tracking-widest text-[10px] mt-1">Catálogo de Tarifas</p>
+                      <h3 className="text-xl lg:text-2xl font-black text-slate-900">{viewingVoucher.name}</h3>
+                      <p className="text-blue-600 font-bold uppercase tracking-widest text-[8px] lg:text-[10px] mt-1">Catálogo de Tarifas</p>
                     </div>
                   </div>
                   <button onClick={() => setViewingVoucher(null)} className="p-2 hover:bg-slate-50 rounded-xl text-slate-400 transition-colors">
@@ -125,22 +125,22 @@ export const VouchersView = () => {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-slate-50 p-6 rounded-3xl space-y-1">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Precio</p>
-                    <p className="text-2xl font-black text-slate-900">{viewingVoucher.price}</p>
+                <div className="grid grid-cols-2 gap-4 lg:gap-6">
+                  <div className="bg-slate-50 p-4 lg:p-6 rounded-2xl lg:rounded-3xl space-y-1">
+                    <p className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase tracking-widest">Precio</p>
+                    <p className="text-xl lg:text-2xl font-black text-slate-900">{viewingVoucher.price}</p>
                   </div>
-                  <div className="bg-slate-50 p-6 rounded-3xl space-y-1">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Sesiones</p>
-                    <p className="text-2xl font-black text-slate-900">{viewingVoucher.sessions}</p>
+                  <div className="bg-slate-50 p-4 lg:p-6 rounded-2xl lg:rounded-3xl space-y-1">
+                    <p className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase tracking-widest">Sesiones</p>
+                    <p className="text-xl lg:text-2xl font-black text-slate-900">{viewingVoucher.sessions}</p>
                   </div>
-                  <div className="bg-slate-50 p-6 rounded-3xl space-y-1">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Ventas Totales</p>
-                    <p className="text-2xl font-black text-slate-900">{viewingVoucher.sales}</p>
+                  <div className="bg-slate-50 p-4 lg:p-6 rounded-2xl lg:rounded-3xl space-y-1">
+                    <p className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase tracking-widest">Ventas Totales</p>
+                    <p className="text-xl lg:text-2xl font-black text-slate-900">{viewingVoucher.sales}</p>
                   </div>
-                  <div className="bg-slate-50 p-6 rounded-3xl space-y-1">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Recaudación</p>
-                    <p className="text-2xl font-black text-blue-600">{viewingVoucher.revenue}</p>
+                  <div className="bg-slate-50 p-4 lg:p-6 rounded-2xl lg:rounded-3xl space-y-1">
+                    <p className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase tracking-widest">Recaudación</p>
+                    <p className="text-xl lg:text-2xl font-black text-blue-600">{viewingVoucher.revenue}</p>
                   </div>
                 </div>
 
@@ -165,21 +165,21 @@ export const VouchersView = () => {
             <motion.div 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={() => setIsSidebarOpen(false)}
-              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[60]"
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[210]"
             />
             <motion.div 
               initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-[70] flex flex-col"
+              className="fixed top-0 right-0 h-full w-full lg:max-w-md bg-white shadow-2xl z-[220] flex flex-col"
             >
-              <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0">
+              <div className="p-6 lg:p-8 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0">
                 <h3 className="text-xl font-black text-slate-900">{editingVoucher ? 'Editar Bono' : 'Nuevo Bono'}</h3>
                 <button onClick={() => setIsSidebarOpen(false)} className="p-2 hover:bg-slate-50 rounded-xl text-slate-400 transition-colors">
                   <X size={24} />
                 </button>
               </div>
 
-              <form onSubmit={handleSave} className="flex-1 overflow-y-auto p-8 space-y-8">
+              <form onSubmit={handleSave} className="flex-1 overflow-y-auto p-6 lg:p-8 space-y-8">
                 <div className="space-y-6">
                   <div className="space-y-1.5">
                     <label className="text-xs font-black text-slate-700 uppercase tracking-widest">Nombre del Bono</label>
@@ -209,33 +209,34 @@ export const VouchersView = () => {
         )}
       </AnimatePresence>
 
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         <div>
-          <h2 className="text-2xl font-black text-slate-900 tracking-tight">Gestión de Bonos</h2>
-          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1">Configuración de tarifas y seguimiento de ventas</p>
+          <h2 className="text-xl lg:text-2xl font-black text-slate-900 tracking-tight">Gestión de Bonos</h2>
+          <p className="text-[10px] lg:text-sm font-bold text-slate-400 uppercase tracking-widest mt-1">Configuración de tarifas y seguimiento de ventas</p>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="relative">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="relative flex-1 sm:flex-none">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
             <input 
               type="text" 
               placeholder="Buscar bono..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-11 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 w-64 font-medium"
+              className="w-full sm:w-64 pl-11 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 font-medium text-sm"
             />
           </div>
           <button 
             onClick={() => { setEditingVoucher(null); setIsSidebarOpen(true); }}
-            className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-2xl font-bold shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition-all"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-bold shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition-all whitespace-nowrap text-sm"
           >
             <Plus size={18} />
-            Nuevo Tipo de Bono
+            <span className="hidden sm:inline">Nuevo Tipo de Bono</span>
+            <span className="sm:hidden">Nuevo Bono</span>
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         <div className="bg-white p-6 rounded-[32px] border border-slate-100 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
@@ -258,7 +259,7 @@ export const VouchersView = () => {
           <h3 className="text-3xl font-black text-slate-900 mt-1">24</h3>
         </div>
 
-        <div className="bg-slate-900 p-6 rounded-[32px] shadow-xl shadow-slate-900/20 text-white">
+        <div className="bg-slate-900 p-6 rounded-[32px] shadow-xl shadow-slate-900/20 text-white sm:col-span-2 lg:col-span-1">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-white/10 text-white rounded-2xl flex items-center justify-center">
               <DollarSign size={24} />
@@ -270,12 +271,12 @@ export const VouchersView = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-[40px] border border-slate-100 shadow-sm overflow-hidden">
-        <div className="p-8 border-b border-slate-50">
+      <div className="bg-white rounded-[32px] lg:rounded-[40px] border border-slate-100 shadow-sm overflow-hidden">
+        <div className="p-6 lg:p-8 border-b border-slate-50">
           <h4 className="font-black text-slate-900">Catálogo de Bonos</h4>
         </div>
         <div className="overflow-x-auto">
-          <table className="w-full text-left">
+          <table className="w-full text-left min-w-[800px] lg:min-w-0">
             <thead>
               <tr className="bg-slate-50/50 border-b border-slate-100">
                 <th className="px-8 py-5 text-[10px] font-black text-slate-400 uppercase tracking-widest">Nombre del Bono</th>
@@ -310,7 +311,7 @@ export const VouchersView = () => {
                     <span className="text-sm font-black text-slate-900">{v.revenue}</span>
                   </td>
                   <td className="px-8 py-6 text-right">
-                    <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="flex items-center justify-end gap-2 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
                       <button onClick={() => openView(v)} className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
                         <Eye size={16} />
                       </button>

@@ -114,7 +114,7 @@ export const CalendarView = ({ isAdmin }: { isAdmin: boolean }) => {
   };
 
   return (
-    <div className="bg-white rounded-[40px] border border-slate-100 shadow-sm overflow-hidden flex flex-col h-[800px] relative">
+    <div className="bg-white rounded-[32px] lg:rounded-[40px] border border-slate-100 shadow-sm overflow-hidden flex flex-col h-[600px] lg:h-[800px] relative">
       {/* Class Detail Modal */}
       <AnimatePresence>
         {selectedEvent && (
@@ -126,43 +126,43 @@ export const CalendarView = ({ isAdmin }: { isAdmin: boolean }) => {
             />
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-white w-full max-w-2xl rounded-[40px] shadow-2xl overflow-hidden"
+              className="relative bg-white w-full max-w-2xl rounded-[32px] lg:rounded-[40px] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto"
             >
-              <div className={`h-32 ${selectedEvent.color} p-8 flex items-end justify-between`}>
-                <h3 className="text-3xl font-black text-white">{selectedEvent.title}</h3>
-                <button onClick={() => setSelectedEvent(null)} className="absolute top-6 right-6 p-2 bg-white/20 hover:bg-white/30 rounded-xl text-white transition-colors">
-                  <X size={24} />
+              <div className={`h-24 lg:h-32 ${selectedEvent.color} p-6 lg:p-8 flex items-end justify-between relative`}>
+                <h3 className="text-xl lg:text-3xl font-black text-white">{selectedEvent.title}</h3>
+                <button onClick={() => setSelectedEvent(null)} className="absolute top-4 lg:top-6 right-4 lg:right-6 p-2 bg-white/20 hover:bg-white/30 rounded-xl text-white transition-colors">
+                  <X size={20} className="lg:w-6 lg:h-6" />
                 </button>
               </div>
-              <div className="p-10 space-y-8">
-                <div className="grid grid-cols-3 gap-6">
+              <div className="p-6 lg:p-10 space-y-6 lg:space-y-8">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
                   <div className="bg-slate-50 p-4 rounded-2xl space-y-1">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Horario</p>
-                    <p className="text-sm font-bold text-slate-700">{selectedEvent.time}</p>
+                    <p className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase tracking-widest">Horario</p>
+                    <p className="text-xs lg:text-sm font-bold text-slate-700">{selectedEvent.time}</p>
                   </div>
                   <div className="bg-slate-50 p-4 rounded-2xl space-y-1">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Campo</p>
-                    <p className="text-sm font-bold text-slate-700">{selectedEvent.field}</p>
+                    <p className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase tracking-widest">Campo</p>
+                    <p className="text-xs lg:text-sm font-bold text-slate-700">{selectedEvent.field}</p>
                   </div>
                   <div className="bg-slate-50 p-4 rounded-2xl space-y-1">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Entrenador</p>
-                    <p className="text-sm font-bold text-slate-700">{selectedEvent.coach}</p>
+                    <p className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase tracking-widest">Entrenador</p>
+                    <p className="text-xs lg:text-sm font-bold text-slate-700">{selectedEvent.coach}</p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-black text-slate-900">Alumnos Inscritos (12)</h4>
-                    <button className="text-xs font-black text-blue-600 uppercase tracking-widest">Pasar Lista</button>
+                    <h4 className="font-black text-slate-900 text-sm lg:text-base">Alumnos (12)</h4>
+                    <button className="text-[10px] lg:text-xs font-black text-blue-600 uppercase tracking-widest">Pasar Lista</button>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-3">
                     {['Lucas García', 'Mateo Rodríguez', 'Sofía Martínez', 'Hugo López', 'Leo Sánchez', 'Daniel Ruiz'].map((name, i) => (
                       <div key={i} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100">
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-black">
                             {name.charAt(0)}
                           </div>
-                          <span className="text-xs font-bold text-slate-700">{name}</span>
+                          <span className="text-[10px] lg:text-xs font-bold text-slate-700">{name}</span>
                         </div>
                         <CheckCircle2 size={14} className="text-emerald-500" />
                       </div>
@@ -170,12 +170,12 @@ export const CalendarView = ({ isAdmin }: { isAdmin: boolean }) => {
                   </div>
                 </div>
 
-                <div className="flex gap-3 pt-4">
-                  <button className="flex-1 py-4 bg-slate-900 text-white font-black rounded-2xl shadow-xl shadow-slate-900/20 hover:bg-slate-800 transition-all">
+                <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                  <button className="flex-1 py-4 bg-slate-900 text-white font-black rounded-2xl shadow-xl shadow-slate-900/20 hover:bg-slate-800 transition-all text-sm">
                     Editar Clase
                   </button>
-                  <button className="flex-1 py-4 bg-blue-50 text-blue-600 font-black rounded-2xl hover:bg-blue-100 transition-all">
-                    Ver Reporte Técnico
+                  <button className="flex-1 py-4 bg-blue-50 text-blue-600 font-black rounded-2xl hover:bg-blue-100 transition-all text-sm">
+                    Reporte Técnico
                   </button>
                 </div>
               </div>
@@ -184,15 +184,15 @@ export const CalendarView = ({ isAdmin }: { isAdmin: boolean }) => {
         )}
       </AnimatePresence>
 
-      <div className="p-8 border-b border-slate-50 flex items-center justify-between bg-white sticky top-0 z-20">
-        <div className="flex items-center gap-6">
-          <h3 className="text-2xl font-black text-slate-900 tracking-tight">Calendario Maestro</h3>
-          <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+      <div className="p-4 lg:p-8 border-b border-slate-50 flex flex-col lg:flex-row lg:items-center justify-between bg-white sticky top-0 z-20 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 lg:gap-6">
+          <h3 className="text-xl lg:text-2xl font-black text-slate-900 tracking-tight">Calendario</h3>
+          <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl w-fit">
             {(['day', 'week', 'month'] as const).map((v) => (
               <button
                 key={v}
                 onClick={() => setView(v)}
-                className={`px-5 py-2 text-xs font-black rounded-lg transition-all uppercase tracking-widest ${
+                className={`px-3 lg:px-5 py-2 text-[10px] lg:text-xs font-black rounded-lg transition-all uppercase tracking-widest ${
                   view === v ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'
                 }`}
               >
@@ -202,15 +202,15 @@ export const CalendarView = ({ isAdmin }: { isAdmin: boolean }) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-3">
-            <button className="p-2.5 hover:bg-slate-50 rounded-xl text-slate-400 border border-slate-100 transition-colors"><ChevronLeft size={20} /></button>
-            <span className="font-black text-slate-900 text-sm uppercase tracking-widest">21 - 27 Feb, 2026</span>
-            <button className="p-2.5 hover:bg-slate-50 rounded-xl text-slate-400 border border-slate-100 transition-colors"><ChevronRight size={20} /></button>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 lg:gap-6">
+          <div className="flex items-center justify-between sm:justify-start gap-3">
+            <button className="p-2 hover:bg-slate-50 rounded-xl text-slate-400 border border-slate-100 transition-colors"><ChevronLeft size={18} /></button>
+            <span className="font-black text-slate-900 text-[10px] lg:text-sm uppercase tracking-widest whitespace-nowrap">21 - 27 Feb, 2026</span>
+            <button className="p-2 hover:bg-slate-50 rounded-xl text-slate-400 border border-slate-100 transition-colors"><ChevronRight size={18} /></button>
           </div>
           {isAdmin && (
-            <button className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-blue-600/20 hover:bg-blue-700 transition-all">
-              <Plus size={18} />
+            <button className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl lg:rounded-2xl font-bold text-[10px] lg:text-xs uppercase tracking-widest shadow-lg shadow-blue-600/20 hover:bg-blue-700 transition-all whitespace-nowrap">
+              <Plus size={16} />
               Crear Clase
             </button>
           )}
@@ -219,12 +219,12 @@ export const CalendarView = ({ isAdmin }: { isAdmin: boolean }) => {
 
       {view === 'month' ? renderMonthView() : view === 'day' ? renderDayView() : (
         <div className="flex-1 overflow-auto relative">
-          <div className="grid grid-cols-[80px_1fr] min-w-[1000px]">
+          <div className="grid grid-cols-[60px_1fr] lg:grid-cols-[80px_1fr] min-w-[800px] lg:min-w-[1000px]">
             {/* Time Column */}
             <div className="border-r border-slate-50">
               {HOURS.map((h) => (
-                <div key={h} className="h-20 border-b border-slate-50 flex items-start justify-center pt-2">
-                  <span className="text-[10px] font-black text-slate-400 uppercase">{h}:00</span>
+                <div key={h} className="h-16 lg:h-20 border-b border-slate-50 flex items-start justify-center pt-2">
+                  <span className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase">{h}:00</span>
                 </div>
               ))}
             </div>
@@ -233,12 +233,12 @@ export const CalendarView = ({ isAdmin }: { isAdmin: boolean }) => {
             <div className="grid grid-cols-7 relative">
               {DAYS.map((day, i) => (
                 <div key={day} className="border-r border-slate-50 relative">
-                  <div className="h-12 bg-slate-50/50 border-b border-slate-100 flex flex-col items-center justify-center sticky top-0 z-10">
-                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{day}</span>
-                    <span className={`text-sm font-black ${i === 5 ? 'text-blue-600' : 'text-slate-900'}`}>{21 + i}</span>
+                  <div className="h-10 lg:h-12 bg-slate-50/50 border-b border-slate-100 flex flex-col items-center justify-center sticky top-0 z-10">
+                    <span className="text-[8px] lg:text-[10px] font-black text-slate-400 uppercase tracking-widest">{day}</span>
+                    <span className={`text-xs lg:text-sm font-black ${i === 5 ? 'text-blue-600' : 'text-slate-900'}`}>{21 + i}</span>
                   </div>
                   {HOURS.map((h) => (
-                    <div key={h} className="h-20 border-b border-slate-50"></div>
+                    <div key={h} className="h-16 lg:h-20 border-b border-slate-50"></div>
                   ))}
 
                   {/* Events for this day */}
@@ -250,21 +250,21 @@ export const CalendarView = ({ isAdmin }: { isAdmin: boolean }) => {
                       onMouseEnter={() => setHoveredEvent(event)}
                       onMouseLeave={() => setHoveredEvent(null)}
                       onClick={() => setSelectedEvent(event)}
-                      className={`absolute left-1 right-1 rounded-2xl p-4 cursor-pointer transition-all hover:brightness-110 shadow-lg ${event.color} text-white overflow-hidden group`}
+                      className={`absolute left-0.5 right-0.5 rounded-xl lg:rounded-2xl p-2 lg:p-4 cursor-pointer transition-all hover:brightness-110 shadow-lg ${event.color} text-white overflow-hidden group`}
                       style={{
-                        top: `${(event.startHour - 8) * 80 + 48}px`,
-                        height: `${event.duration * 80}px`,
+                        top: `${(event.startHour - 8) * (window.innerWidth < 1024 ? 64 : 80) + (window.innerWidth < 1024 ? 40 : 48)}px`,
+                        height: `${event.duration * (window.innerWidth < 1024 ? 64 : 80)}px`,
                         zIndex: hoveredEvent?.id === event.id ? 30 : 5
                       }}
                     >
-                      <p className="text-sm font-black leading-tight truncate">{event.title}</p>
-                      <p className="text-[10px] font-bold opacity-80 mt-1 flex items-center gap-1">
-                        <MapPin size={12} /> {event.field}
+                      <p className="text-[10px] lg:text-sm font-black leading-tight truncate">{event.title}</p>
+                      <p className="text-[8px] lg:text-[10px] font-bold opacity-80 mt-0.5 lg:mt-1 flex items-center gap-1">
+                        <MapPin size={10} className="lg:w-3 lg:h-3" /> {event.field}
                       </p>
                       
-                      {/* Tooltip Simulation */}
+                      {/* Tooltip Simulation - Hidden on small screens */}
                       <AnimatePresence>
-                        {hoveredEvent?.id === event.id && (
+                        {hoveredEvent?.id === event.id && window.innerWidth >= 1024 && (
                           <motion.div 
                             initial={{ opacity: 0, y: 10, scale: 0.9 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}

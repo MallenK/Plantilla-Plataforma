@@ -129,52 +129,52 @@ export const SettingsView = () => {
   };
 
   return (
-    <div className="p-8 max-w-6xl mx-auto space-y-12">
-      <div className="flex items-center justify-between">
+    <div className="p-4 lg:p-8 max-w-6xl mx-auto space-y-8 lg:space-y-12 pb-24 lg:pb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div>
-          <h2 className="text-2xl font-black text-slate-900 tracking-tight">Configuración del Sistema</h2>
-          <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mt-1">Personaliza tu escuela y gestiona preferencias globales</p>
+          <h2 className="text-xl lg:text-2xl font-black text-slate-900 tracking-tight">Configuración</h2>
+          <p className="text-[10px] lg:text-sm font-bold text-slate-400 uppercase tracking-widest mt-1">Personaliza tu escuela y preferencias</p>
         </div>
-        <button className="flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-2xl font-bold shadow-xl shadow-slate-900/20 hover:bg-slate-800 transition-all">
+        <button className="flex items-center justify-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-xl lg:rounded-2xl font-bold shadow-xl shadow-slate-900/20 hover:bg-slate-800 transition-all text-sm">
           <Save size={18} />
           Guardar Cambios
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <div className="lg:col-span-1 space-y-4">
-          <nav className="space-y-2">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="lg:col-span-1">
+          <nav className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-1 gap-2 lg:gap-2">
             {[
               { id: 'general', label: 'General', icon: Settings },
-              { id: 'staff', label: 'Gestión de Staff', icon: UserCog },
-              { id: 'fields', label: 'Campos y Sedes', icon: Map },
-              { id: 'billing', label: 'Facturación y Pagos', icon: CreditCard },
-              { id: 'notifications', label: 'Notificaciones', icon: Bell },
+              { id: 'staff', label: 'Staff', icon: UserCog },
+              { id: 'fields', label: 'Sedes', icon: Map },
+              { id: 'billing', label: 'Pagos', icon: CreditCard },
+              { id: 'notifications', label: 'Avisos', icon: Bell },
               { id: 'security', label: 'Seguridad', icon: Shield },
-              { id: 'backup', label: 'Copia de Seguridad', icon: Database },
-              { id: 'public', label: 'Web Pública', icon: Globe },
+              { id: 'backup', label: 'Backup', icon: Database },
+              { id: 'public', label: 'Web', icon: Globe },
             ].map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
-                className={`w-full flex items-center justify-between px-6 py-4 rounded-2xl transition-all group ${
+                className={`flex items-center justify-between px-4 lg:px-6 py-3 lg:py-4 rounded-xl lg:rounded-2xl transition-all group ${
                   activeSection === item.id 
                     ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' 
                     : 'bg-white text-slate-500 hover:bg-slate-50 border border-slate-100'
                 }`}
               >
-                <div className="flex items-center gap-4">
-                  <item.icon size={20} className={activeSection === item.id ? 'text-white' : 'text-slate-400 group-hover:text-blue-600'} />
-                  <span className="font-bold text-sm">{item.label}</span>
+                <div className="flex items-center gap-3 lg:gap-4">
+                  <item.icon size={18} className={activeSection === item.id ? 'text-white' : 'text-slate-400 group-hover:text-blue-600'} />
+                  <span className="font-bold text-[10px] lg:text-sm truncate">{item.label}</span>
                 </div>
-                <ChevronRight size={16} className={activeSection === item.id ? 'text-white/50' : 'text-slate-300'} />
+                <ChevronRight size={14} className={`hidden lg:block ${activeSection === item.id ? 'text-white/50' : 'text-slate-300'}`} />
               </button>
             ))}
           </nav>
         </div>
 
-        <div className="lg:col-span-2 space-y-8">
-          <div className="bg-white rounded-[40px] border border-slate-100 shadow-sm p-10 min-h-[600px]">
+        <div className="lg:col-span-2">
+          <div className="bg-white rounded-[32px] lg:rounded-[40px] border border-slate-100 shadow-sm p-6 lg:p-10 min-h-[400px] lg:min-h-[600px]">
             {renderSectionContent()}
           </div>
         </div>

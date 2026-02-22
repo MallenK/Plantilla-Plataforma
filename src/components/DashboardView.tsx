@@ -6,8 +6,8 @@ interface AdminDashboardProps {
 }
 
 export const AdminDashboard = ({ onNavigate }: AdminDashboardProps) => (
-  <div className="p-8 space-y-8">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
       <div 
         onClick={() => onNavigate('students')}
         className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm cursor-pointer hover:border-blue-200 transition-all group"
@@ -78,18 +78,18 @@ export const AdminDashboard = ({ onNavigate }: AdminDashboardProps) => (
       </div>
     </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <div className="lg:col-span-2 space-y-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div className="lg:col-span-2 space-y-6 lg:space-y-8">
         <CalendarView isAdmin={true} />
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-6 lg:space-y-8">
         <div className="bg-white rounded-[32px] border border-slate-100 shadow-sm overflow-hidden">
-          <div className="p-8 border-b border-slate-50 flex items-center justify-between">
+          <div className="p-6 lg:p-8 border-b border-slate-50 flex items-center justify-between">
             <h4 className="font-black text-slate-900">Próximos Torneos</h4>
             <Trophy size={18} className="text-orange-500" />
           </div>
-          <div className="p-4 space-y-2">
+          <div className="p-3 lg:p-4 space-y-2">
             {[
               { name: 'Copa Primavera Sub-12', date: '15 Mar', status: 'Abierto' },
               { name: 'Tecnificación Élite', date: '22 Mar', status: 'Próximamente' },
